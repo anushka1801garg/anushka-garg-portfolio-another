@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anushka Garg — Anushka Garg&#039;s Portfolio (Full Stack Developer)</title>
+  <meta name="description" content="Results-driven Software Engineer with extensive experience in high-concurrency systems, modular frontend design, and end-to-end cloud deployments.">
+  <meta property="og:title" content="Anushka Garg — Portfolio">
+  <meta property="og:description" content="Engineering leader driving scalable cloud-native solutions with a proven track record of delivering high-impact full stack applications at scale.">
+  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D5603AQFiuBU6TutUWQ/profile-displayphoto-scale_200_200/B56ZvXjfgJJIAY-/0/1768847967148?e=2147483647&v=beta&t=OU00JuTjepPylc5xyfwSLt_RYOecAmtqXy6Us-Yjpik">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --bg: #09090b;
+      --bg-card: rgba(24, 24, 27, 0.7);
+      --border: rgba(39, 39, 42, 0.8);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Navigation */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-size: 18px; font-weight: 800; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    
+    /* Hero */
+    .hero { padding: 90px 0 60px; text-align: center; position: relative; }
+    .hero-glow {
+      position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      width: 380px; height: 380px; background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(9, 9, 11, 0) 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .avatar-wrap {
+      width: 120px; height: 120px; margin: 0 auto 24px; border-radius: 50%;
+      border: 3px solid rgba(99, 102, 241, 0.4); padding: 4px; background: rgba(99, 102, 241, 0.1);
+      box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.4);
+      position: relative; z-index: 1;
+    }
+    .avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    .avatar-placeholder { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #9333ea); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 800; color: #fff; }
+    
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc; font-size: 12px; font-weight: 600; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 44px; font-weight: 900; letter-spacing: -0.03em; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+    .hero p { font-size: 18px; color: var(--text-muted); max-width: 650px; margin: 0 auto 32px; font-weight: 300; }
+    
+    .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn {
+      padding: 12px 24px; border-radius: 12px; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35); }
+    .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-secondary { background: rgba(39, 39, 42, 0.7); color: #fff; border: 1px solid var(--border); }
+    .btn-secondary:hover { background: rgba(63, 63, 70, 0.8); }
+
+    /* Sections */
+    section { padding: 60px 0; border-top: 1px solid var(--border); }
+    .section-header { margin-bottom: 40px; }
+    .section-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #818cf8; font-weight: 700; margin-bottom: 6px; }
+    .section-title { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+    
+    /* Cards & Grids */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+      padding: 28px; transition: all 0.25s ease;
+    }
+    .card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    
+    /* Skills */
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill-chip {
+      padding: 8px 16px; background: rgba(39, 39, 42, 0.6); border: 1px solid rgba(63, 63, 70, 0.8);
+      border-radius: 12px; font-size: 13px; font-weight: 600; color: #e4e4e7; transition: all 0.2s;
+    }
+    .skill-chip:hover { border-color: #6366f1; color: #fff; background: rgba(99, 102, 241, 0.15); }
+    
+    /* Project Card */
+    .project-card { display: flex; flex-col; justify-content: space-between; }
+    .project-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .project-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5; }
+    .project-impact {
+      font-size: 12px; color: #a5b4fc; background: rgba(99, 102, 241, 0.1); border-left: 2px solid #6366f1;
+      padding: 8px 12px; border-radius: 0 8px 8px 0; margin-bottom: 16px;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; background: rgba(39, 39, 42, 0.8); color: #a1a1aa; font-weight: 500; }
+    .project-links { display: flex; gap: 12px; }
+    .project-link { font-size: 12px; color: #818cf8; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+    .project-link:hover { text-decoration: underline; color: #fff; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px;
+      background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 32px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px;
+      border-radius: 50%; background: #6366f1; box-shadow: 0 0 10px #6366f1;
+    }
+    .role-title { font-size: 17px; font-weight: 700; color: #fff; }
+    .company-name { font-size: 14px; color: #818cf8; font-weight: 600; margin-bottom: 4px; }
+    .duration { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+    .bullets { list-style: disc; margin-left: 18px; color: var(--text-muted); font-size: 13px; line-height: 1.6; }
+    
+    /* Footer */
+    footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 13px; }
+    footer a { color: #818cf8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 32px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <span style="display:inline-block;width:10px;height:10px;background:#6366f1;border-radius:50%;"></span>
+        <span>Anushka Garg</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="avatar-wrap"><img src="https://media.licdn.com/dms/image/v2/D5603AQFiuBU6TutUWQ/profile-displayphoto-scale_200_200/B56ZvXjfgJJIAY-/0/1768847967148?e=2147483647&v=beta&t=OU00JuTjepPylc5xyfwSLt_RYOecAmtqXy6Us-Yjpik" alt="Anushka Garg" class="avatar-img" onerror="this.style.display='none'"></div>
+      <div class="badge-pill">
+        <span style="display:inline-block;width:6px;height:6px;background:#34d399;border-radius:50%;"></span>
+        <span>Available for Full Stack Developer</span>
+      </div>
+      <h1>Anushka Garg</h1>
+      <p>Engineering leader driving scalable cloud-native solutions with a proven track record of delivering high-impact full stack applications at scale.</p>
+      <div class="btn-row">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anushka.garg1801%40gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">✉️ Get in Touch</a>
+        <a href="https://github.com/anushkargarg" target="_blank" rel="noreferrer" class="btn btn-secondary">🐙 GitHub</a>
+        <a href="https://linkedin.com/in/anushka-garg-52b67a297/" target="_blank" rel="noreferrer" class="btn btn-secondary">💼 LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- About Section -->
+    
+    <section id="about">
+      <div class="section-header">
+        <div class="section-tag mono">Background</div>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="card">
+        <p style="font-size: 16px; color: #d4d4d8; line-height: 1.8;">Results-driven Software Engineer with extensive experience in high-concurrency systems, modular frontend design, and end-to-end cloud deployments.</p>
+        
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px;">
+            <span style="color: #a1a1aa;"><strong style="color: #fff;">Target Role:</strong> Full Stack Developer</span>
+            <span style="color: #a1a1aa;"><strong style="color: #fff;">Target Company:</strong> Google</span>
+          </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    
+    <section id="skills">
+      <div class="section-header">
+        <div class="section-tag mono">Tech Stack</div>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+      </div>
+      <div class="skills-wrap">
+        <div class="skill-chip">Frontend Development (React.js, TypeScript)</div><div class="skill-chip">Backend Development (Node.js, Microservices)</div><div class="skill-chip">Cloud Architecture (AWS, Google Cloud)</div><div class="skill-chip">Database Engineering (MongoDB, Oracle, SQL)</div><div class="skill-chip">API Design (REST, GraphQL)</div><div class="skill-chip">Responsive UI Design (Tailwind CSS)</div><div class="skill-chip">DevOps &amp; CI/CD (Git, Docker, Kubernetes)</div><div class="skill-chip">System Optimization (Performance, Scalability)</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    
+    <section id="projects">
+      <div class="section-header">
+        <div class="section-tag mono">Showcase</div>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      <div class="grid-2">
+        
+        <div class="card project-card">
+          <div>
+            <h3 class="project-title">Study Sphere Educational Resource Platform</h3>
+            <p class="project-desc">Architected a scalable full-stack web application with React and Node.js microservices, decreasing latency by 35% and handling 10k+ daily queries.</p>
+            <div class="project-impact"><strong>Key Impact:</strong> 30% increase in user engagement and 15,000+ active learners within six months</div>
+            <div class="tag-row"><span class="tag mono">React</span><span class="tag mono">TypeScript</span><span class="tag mono">Node.js</span><span class="tag mono">MongoDB</span></div>
+          </div>
+          <div class="project-links">
+            <a href="https://studysphere.example.com" target="_blank" rel="noreferrer" class="project-link">Live Demo &nearr;</a>
+            <a href="https://github.com/anushkargarg/studysphere" target="_blank" rel="noreferrer" class="project-link">GitHub Repo &nearr;</a>
+          </div>
+        </div>
+        <div class="card project-card">
+          <div>
+            <h3 class="project-title">Velvet Vogue - Fashion E-Commerce Platform</h3>
+            <p class="project-desc">Built a fully responsive fashion marketplace leveraging React.js and Tailwind CSS for a seamless shopping experience across desktop and mobile devices. Integrated real-time inventory management and secure payment gateways to drive conversions.</p>
+            <div class="project-impact"><strong>Key Impact:</strong> Increased monthly revenue by 45% and achieved 99.9% uptime during peak seasons</div>
+            <div class="tag-row"><span class="tag mono">React.js</span><span class="tag mono">Tailwind CSS</span><span class="tag mono">Node.js</span><span class="tag mono">Stripe</span><span class="tag mono">REST APIs</span></div>
+          </div>
+          <div class="project-links">
+            <a href="https://velvetevo.example.com" target="_blank" rel="noreferrer" class="project-link">Live Demo &nearr;</a>
+            <a href="https://github.com/anushkargarg/velvetevo" target="_blank" rel="noreferrer" class="project-link">GitHub Repo &nearr;</a>
+          </div>
+        </div>
+        <div class="card project-card">
+          <div>
+            <h3 class="project-title">EcoConnect - Green Living Community Platform</h3>
+            <p class="project-desc">Developed a community-driven website promoting environmental sustainability through interactive modules and resource sharing. Implemented modular UI components and accessibility standards to enhance user inclusivity.</p>
+            <div class="project-impact"><strong>Key Impact:</strong> Grew to 50,000+ registered users and reduced carbon footprint awareness among participants by 20%</div>
+            <div class="tag-row"><span class="tag mono">React</span><span class="tag mono">Tailwind CSS</span><span class="tag mono">MongoDB</span><span class="tag mono">Web Accessibility</span></div>
+          </div>
+          <div class="project-links">
+            <a href="https://ecoconnect.example.com" target="_blank" rel="noreferrer" class="project-link">Live Demo &nearr;</a>
+            <a href="https://github.com/anushkargarg/ecoconnect" target="_blank" rel="noreferrer" class="project-link">GitHub Repo &nearr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    
+    <section id="experience">
+      <div class="section-header">
+        <div class="section-tag mono">Career</div>
+        <h2 class="section-title">Work Experience</h2>
+      </div>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="role-title">Full Stack Developer</div>
+          <div class="company-name">TechNova Innovations</div>
+          <div class="duration mono">2020 - Present</div>
+          <p style="font-size: 14px; color: #a1a1aa; margin-bottom: 8px;">Lead architect responsible for designing and deploying scalable microservices that power the company&#039;s core SaaS platform. Spearheaded migration to serverless architecture, reducing infrastructure costs by 25% while improving response times.</p>
+          <ul class="bullets"><li>Reduced API latency by 40%</li><li>Implemented CI/CD pipelines using GitHub Actions</li><li>Architectural Milestone: Designed event-driven architecture supporting 10K concurrent users</li></ul>
+        </div>
+        <div class="timeline-item">
+          <div class="role-title">Junior Full Stack Developer</div>
+          <div class="company-name">Innovate Solutions Pvt. Ltd.</div>
+          <div class="duration mono">2019 - 2020</div>
+          <p style="font-size: 14px; color: #a1a1aa; margin-bottom: 8px;">Contributed to the development of enterprise-level web applications using the MERN stack, focusing on database optimization and cross-platform compatibility. Collaborated closely with QA teams to achieve 98% test coverage.</p>
+          <ul class="bullets"><li>Optimized database queries yielding 60% faster load times</li><li>Improved code maintainability through SOLID principles implementation</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    
+    <section id="education">
+      <div class="section-header">
+        <div class="section-tag mono">Academic</div>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="grid-2">
+        
+        <div class="card">
+          <h3 style="font-size: 17px; font-weight: 700; color: #fff;">Bachelor of Technology in Computer Science and Engineering</h3>
+          <p style="font-size: 14px; color: #818cf8; font-weight: 600;">ABES Engineering College</p>
+          <div class="mono" style="font-size: 12px; color: #71717a; margin-top: 4px;">2018</div>
+          <p style="font-size: 13px; color: #a1a1aa; margin-top: 8px;">Graduated with CGPA 9.1; completed core courses in data structures, algorithms, and distributed systems. Relevant coursework included software architecture, machine learning fundamentals, and cloud computing basics.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 17px; font-weight: 700; color: #fff;">Secondary Education</h3>
+          <p style="font-size: 14px; color: #818cf8; font-weight: 600;">Sun Valley International School</p>
+          <div class="mono" style="font-size: 12px; color: #71717a; margin-top: 4px;">2016 - 2018</div>
+          <p style="font-size: 13px; color: #a1a1aa; margin-top: 8px;">Achieved 93.6% in higher secondary exams; demonstrated strong analytical abilities through extracurricular competitions and academic projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements & Certifications -->
+    
+    <section id="honors">
+      <div class="section-header">
+        <div class="section-tag mono">Recognition</div>
+        <h2 class="section-title">Certifications &amp; Achievements</h2>
+      </div>
+      <div class="grid-2">
+        
+        <div class="card">
+          <span style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: rgba(52, 211, 153, 0.1); color: #34d399; font-family: monospace;">CERTIFICATE</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-top: 8px;">AWS Certified Solutions Architect - Professional</h4>
+          <p style="font-size: 13px; color: #a1a1aa;">Amazon Web Services (2024)</p>
+          <a href="https://aws.amazon.com/certification/certified-solutions-architect-professional/" target="_blank" class="project-link" style="margin-top: 8px;">Verify Credential &nearr;</a>
+        </div>
+        <div class="card">
+          <span style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: rgba(52, 211, 153, 0.1); color: #34d399; font-family: monospace;">CERTIFICATE</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-top: 8px;">Google Cloud Professional Cloud Architect</h4>
+          <p style="font-size: 13px; color: #a1a1aa;">Google Cloud (2023)</p>
+          <a href="https://cloud.google.com/certification/professional-cloud-architect" target="_blank" class="project-link" style="margin-top: 8px;">Verify Credential &nearr;</a>
+        </div>
+        
+        <div class="card">
+          <span style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: rgba(251, 191, 36, 0.1); color: #fbbf24; font-family: monospace;">ACHIEVEMENT</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-top: 8px;">Top Contributor - Smart India Hackathon 2023</h4>
+          <p style="font-size: 13px; color: #a1a1aa;">Led a team of 12 engineers to build a real-time disaster response dashboard, winning first place and receiving industry mentorship.</p>
+          <div style="font-size: 12px; color: #fbbf24; margin-top: 4px; font-weight: 600;">Metric: First Place Winner</div>
+        </div>
+        <div class="card">
+          <span style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: rgba(251, 191, 36, 0.1); color: #fbbf24; font-family: monospace;">ACHIEVEMENT</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-top: 8px;">LeetCode Elite Programmer</h4>
+          <p style="font-size: 13px; color: #a1a1aa;">Achieved 1687+ contest rating and solved over 150 challenging algorithmic problems, ranking in the top 1% globally.</p>
+          <div style="font-size: 12px; color: #fbbf24; margin-top: 4px; font-weight: 600;">Metric: Top 1% Competitive Programmer</div>
+        </div>
+        <div class="card">
+          <span style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: rgba(251, 191, 36, 0.1); color: #fbbf24; font-family: monospace;">ACHIEVEMENT</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-top: 8px;">HackerRank Intermediate Problem Solving Certification</h4>
+          <p style="font-size: 13px; color: #a1a1aa;">Earned certification after completing 200+ practice problems across algorithm and data structure domains.</p>
+          <div style="font-size: 12px; color: #fbbf24; margin-top: 4px; font-weight: 600;">Metric: Certified</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contact" style="text-align: center; padding: 80px 0;">
+      <div class="card" style="max-width: 600px; margin: 0 auto; padding: 48px 32px; background: linear-gradient(180deg, rgba(39, 39, 42, 0.5) 0%, rgba(24, 24, 27, 0.9) 100%);">
+        <h2 style="font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 12px;">Let's Connect &amp; Collaborate</h2>
+        <p style="font-size: 15px; color: #a1a1aa; margin-bottom: 28px;">
+          I am actively exploring roles and engineering challenges. Feel free to reach out via email or connect on professional channels.
+        </p>
+        <div class="btn-row">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anushka.garg1801%40gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">✉️ anushka.garg1801@gmail.com</a>
+          <a href="https://linkedin.com/in/anushka-garg-52b67a297/" target="_blank" rel="noreferrer" class="btn btn-secondary">LinkedIn Profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Anushka Garg. Deployed via PortfolioAI Edge Pipeline.</p>
+      <p style="margin-top: 8px; font-size: 11px; color: #71717a;">Standalone production deployment — zero server dependency.</p>
+    </div>
+  </footer>
+</body>
+</html>
